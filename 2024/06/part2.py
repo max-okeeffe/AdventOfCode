@@ -1,7 +1,4 @@
-from copy import deepcopy
-
 filename = input() + ".txt"
-
 start_map = [[char for char in row] for row in open(filename).read().split('\n')]
 
 m = len(start_map[0])
