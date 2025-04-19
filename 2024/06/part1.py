@@ -21,7 +21,7 @@ while 0 <= nei_i < m and 0 <= nei_j < n:
         k = (k + 1) % 4
         nei_i, nei_j = i + dirs[k][0], j + dirs[k][1]
     else:
-        i, j, nei_i, nei_j = nei_i, nei_j, i + dirs[k][0], j + dirs[k][1]
+        i, j, nei_i, nei_j = nei_i, nei_j, nei_i + dirs[k][0], nei_j + dirs[k][1]
         if (i,j) not in visited:
             visited.append((i,j))
 
