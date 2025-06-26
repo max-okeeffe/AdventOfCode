@@ -41,10 +41,14 @@ def neis(node):
     
     return out
 
-def h(node,nei):
+def weight(node,nei):
     if node[1] == nei[1]:
         return 1
     return 1000
+
+def h(node1,node2):
+    pos1, pos2 = node1[0], node2[0]
+    return abs(pos1[0] - pos2[0]) + abs(pos1[1] - pos2[1])
 
 dirs = ((1,0),(-1,0),(0,1),(0,-1))
 nodes = [ ((a,b),(c,d)) for a in range(m) for b in range(n) if X[a,b] != '#' for (c,d) in dirs ]
@@ -74,7 +78,7 @@ def astar(end):
         for nei in neis(minn):
             if nei in closed:
                 continue
-            temp = g[minn] + h(minn,nei)
+            temp = g[minn] + weight(minn,nei)
             if nei not in open:
                 g[nei] = temp
                 f[nei] = temp + h(nei,end)
