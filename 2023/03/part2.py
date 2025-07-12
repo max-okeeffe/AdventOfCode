@@ -1,5 +1,4 @@
-#filename = input() + ".txt"
-filename = "data.txt"
+filename = input() + ".txt"
 map = open(filename).read().split('\n')
 
 m, n = len(map), len(map[0])
