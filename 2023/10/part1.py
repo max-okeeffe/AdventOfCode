@@ -10,13 +10,13 @@ while plan[a][b] != 'S':
         a += 1
 
 entries = []
-if a > 0 and plan[a-1][b] in ['|', '7', 'F']:
+if a > 0 and plan[a-1][b] in '|7F':
     entries.append((a-1,b))
-if a < m-1 and plan[a+1][b] in ['|', 'L', 'J']:
+if a < m-1 and plan[a+1][b] in '|LJ':
     entries.append((a+1,b))
-if b > 0 and plan[a][b-1] in ['-', 'F', 'L']:
+if b > 0 and plan[a][b-1] in '-FL':
     entries.append((a,b-1))
-if b < n-1 and plan[a][b+1] in ['-', 'J', '7']:
+if b < n-1 and plan[a][b+1] in '-J7':
     entries.append((a,b+1))
 
 def loc(oldx, x, pipe):
@@ -24,10 +24,10 @@ def loc(oldx, x, pipe):
     i,j = oldx
     di, dj = a-i, b-j
 
-    if pipe in ['-', '|']:
+    if pipe in '-|':
         return (a+di,b+dj)
     
-    if pipe in ['L', '7']:
+    if pipe in 'L7':
         return (a+dj,b+di)
     
     return (a-dj,b-di)
