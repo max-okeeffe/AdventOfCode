@@ -1,7 +1,6 @@
 from collections import deque
 
-#filename = input() + ".txt"
-filename = "data.txt"
+filename = input() + ".txt"
 plan = open(filename).read().split('\n')
 
 m, n, a, b = len(plan), len(plan[0]), plan[0].index('.'), plan[-1].index('.')
@@ -35,8 +34,8 @@ def neis(i,j,dir):
             valid.append((x,y,dir1))
     return valid
 
-dis, Q = {(a,0,d) : 0}, deque()
-Q.append((a,0,d))
+dis, Q = {(0,a,d) : 0}, deque()
+Q.append((0,a,d))
 while Q:
     node = Q.popleft()
     for nei in neis(*node):
