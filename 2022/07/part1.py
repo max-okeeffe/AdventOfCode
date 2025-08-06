@@ -28,13 +28,10 @@ for line in lines:
             curr_dir.children.append(dir)
             dirs.append(dir)
         else:
-            curr_dir.size += int(data[0])
-
-for dir in dirs:
-    if not dir.children:
-        curr_dir = dir
-        while curr_dir.parent:
-            curr_dir.parent.size += curr_dir.size
-            curr_dir = curr_dir.parent
+            size = int(data[0])
+            new_curr = curr_dir
+            while new_curr.parent:
+                new_curr.size += size
+                new_curr = new_curr.parent
 
 print(sum(dir.size for dir in dirs if dir.size <= 100000))
