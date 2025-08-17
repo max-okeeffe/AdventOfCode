@@ -9,7 +9,6 @@ options = []
 for monkey in monkeys:
     _, items, operation, test, tcase, fcase = monkey.split('\n')
     monkey_items.append(list(map(int, items.split(': ')[-1].split(', '))))
-    #op = lambda old : eval(operation.split('= ')[-1])
     operations.append(operation.split('= ')[-1])
     tests.append(int(test.split()[-1]))
     options.append([int(tcase.split()[-1]), int(fcase.split()[-1])])
